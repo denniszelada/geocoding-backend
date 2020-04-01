@@ -13,6 +13,9 @@ Style/HashTransformKeys:
 Style/HashTransformValues:
   Enabled: true
 
+Documentation:
+  Enabled: false
+
 AllCops:
   TargetRubyVersion: 2.6.2
 
