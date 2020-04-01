@@ -7,12 +7,13 @@ module Api
       class ForwardsController < ApplicationController
         def index
           if params.key?(:address)
-            @geolocation = GeolocationService.new(addres: params[:address])
-                                             .forward
+            @geolocation = GeolocationService.new(params[:address]).forward
           else
             render json: { message: 'Please provide an address as parameter' },
                    status: 200
           end
+        rescue ApiError => e
+          render json: { message: e.message }, status: :not_found
         end
       end
     end
